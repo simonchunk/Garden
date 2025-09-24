@@ -55,11 +55,12 @@ function LawnDashboard() {
   }, [season]);
 
   const toggleTask = (task) => {
-    const updated = { ...prev, [task]: !prev[task] }; localStorage.setItem('completedTasks', JSON.stringify(updated)); return updated; 
-      ...prev,
-      [task]: !prev[task]
-    }));
-  };
+  setCompleted((prev) => {
+    const updated = { ...prev, [task]: !prev[task] };
+    localStorage.setItem("completedTasks", JSON.stringify(updated));
+    return updated;
+  });
+};
 
   const completionRate =
     tasks.length > 0
